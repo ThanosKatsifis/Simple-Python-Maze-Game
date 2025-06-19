@@ -1,0 +1,188 @@
+import pygame
+import time
+import threading
+
+pygame.init()
+width = 1280
+
+height = 720
+screen = pygame.display.set_mode((width , height))
+running = True
+running2 = False
+finish2 = pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(1210, 650, 50, 50))
+timer=0
+timer2 = 0
+w1_h=500
+w3_h = 700
+
+def resize():
+    global w1_h
+    while True:
+        for i in range(180):
+            w1_h +=1
+            time.sleep(0.01)
+        for i in range(180):
+            w1_h -=1
+            time.sleep(0.01)
+resize_thread = threading.Thread(target=resize)
+resize_thread.daemon = True
+resize_thread.start()
+
+def resize():
+    global w3_h
+    while True:
+        for i in range(80):
+            w3_h +=1
+            time.sleep(0.01)
+        for i in range(80):
+            w3_h -=1
+            time.sleep(0.01)
+resize_thread = threading.Thread(target=resize)
+resize_thread.daemon = True
+resize_thread.start()
+
+
+
+
+x = 50
+y = 50
+x2= 80
+y2 = 80
+start = time.time()
+start2 = time.time()
+print(start)
+print(start2)
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+
+
+
+
+    pressed = pygame.key.get_pressed()
+    if  pressed[pygame.K_UP]:
+        y -= 1
+
+    if  pressed[pygame.K_DOWN]:
+        y += 1
+
+    if  pressed[pygame.K_LEFT]:
+        x -= 1
+
+    if  pressed[pygame.K_RIGHT]:
+        x += 1
+
+    pressed2 = pygame.key.get_pressed()
+    if pressed2[pygame.K_w]:
+        y2 -= 1
+
+    if pressed2[pygame.K_s]:
+        y2 += 1
+
+    if pressed2[pygame.K_a]:
+        x2 -= 1
+
+    if pressed2[pygame.K_d]:
+        x2 += 1
+
+
+
+    screen.fill((97, 107, 98))
+    mouse_pos = pygame.mouse.get_pos()
+    w1 = pygame.draw.rect(screen, (0, 100, 0), pygame.Rect(270, 20, 30, w1_h))
+    w2 = pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(400, 200, 30, 500))
+    w3 = pygame.draw.rect(screen, (0, 100, 0), pygame.Rect(480, 200, w3_h, 30))
+    w4 = pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(700, 280, 30,500 ))
+    w5 = pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(1100, 300, 30, 700))
+    player = pygame.draw.rect(screen, (97, 227, 101), pygame.Rect(x, y, 30, 30))
+    player2 = pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(x2, y2, 30, 30))
+    finish = pygame.draw.rect(screen, (97, 227, 101), pygame.Rect(1190, 630, 70, 70))
+    top_b = pygame.draw.rect(screen , (255,0,0), pygame.Rect(0,0, width , 20))
+    bot_b = pygame.draw.rect(screen, (255,0,0), pygame.Rect(0, height-20, width, 20))
+    r_b = pygame.draw.rect(screen, (255,0,0), pygame.Rect(0,0,20,height))
+    l_b = pygame.draw.rect(screen,(255,0,0), pygame.Rect(width-20, 0,20, height))
+    #print(mouse_pos)
+    if player.colliderect(w1) or player.colliderect(w2) or player.colliderect(w3) or player.colliderect(w4) or player.colliderect(w5) or player.colliderect(top_b) or player.colliderect(bot_b) or player.colliderect(r_b) or player.colliderect(l_b):
+        if pressed[pygame.K_UP]:
+            y += 1
+
+        if pressed[pygame.K_DOWN]:
+            y -= 1
+
+        if pressed[pygame.K_LEFT]:
+            x += 1
+
+        if pressed[pygame.K_RIGHT]:
+            x -= 1
+
+
+
+    if player2.colliderect(w1) or player2.colliderect(w2) or player2.colliderect(w3) or player2.colliderect(w4) or player2.colliderect(w5) or player2.colliderect(top_b) or player2.colliderect(bot_b) or player2.colliderect(r_b) or player2.colliderect(l_b):
+        if pressed2[pygame.K_w]:
+            y2 += 1
+
+        if pressed2[pygame.K_s]:
+            y2 -= 1
+
+        if pressed2[pygame.K_a]:
+            x2 += 1
+
+        if pressed2[pygame.K_d]:
+            x2 -= 1
+
+
+
+
+
+    if player.colliderect(finish):
+        x = 50
+        y = 50
+        finish = pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(1210, 650, 50, 50))
+        x2 = 70
+        y2= 50
+        end=time.time()
+        timer=round(end-start , 2)
+        print(timer)
+        start=end
+        running = False
+        running2 = True
+    font1=pygame.font.SysFont("Tahoma", 20, True , False)
+    text1=font1.render("TIME 1 : "+str(timer),True , (0,255,0))
+    screen.blit(text1,(200,50))
+
+
+    if player2.colliderect(finish):
+
+        x2 = 70
+        y2 = 50
+
+        x = 50
+        y = 50
+        end2=time.time()
+        timer2=round(end2-start2 , 2)
+        print(timer2)
+        start2=end2
+        running = False
+    font1=pygame.font.SysFont("Tahoma", 20, True , False)
+    text1=font1.render("TIME 2 : "+str(timer2),True , (255,0,0))
+    screen.blit(text1,(400,50))
+
+
+    pygame.display.flip()
+
+while running2:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running2 = False
+
+    screen.fill((156, 163, 166))
+    font1 = pygame.font.SysFont("Tahoma", 40, True, False)
+    text2 = font1.render("YOU WON!!!", True, (255, 0, 0))
+    screen.blit(text2, (500, 200))
+    text1 = font1.render("Time:  " + str(timer), True, (255, 0, 0))
+    screen.blit(text1, (500, 325))
+    text3 = font1.render("by Thanos Katsifis", True, (255, 0, 0))
+    screen.blit(text3, (450, 650))
