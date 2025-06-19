@@ -45,3 +45,37 @@ Make your way through the maze—first to touch the goal wins!
 pip install pygame
 python maze_game.py
 
+
+---
+
+## 💻 Preview
+
+_Add animated gameplay previews and screenshots here._  
+🎥 Tip: Use tools like **OBS Studio**, **ShareX**, or **ScreenToGif** to capture smooth and stylish gameplay gifs.
+
+---
+
+## 🧪 Developer Notes
+
+🧠 Game logic includes:
+- Multithreaded wall animations for real-time movement
+- Continuous rendering with reactive collision detection
+- Individual timers to track player performance side-by-side
+- Clean reset mechanics for seamless replayability
+
+---
+
+## 👨‍🎨 Credits
+
+Made with ❤️ by **Thanos Katsifis**  
+_Because mazes should move too._
+
+---
+
+## 📄 License
+
+Released under the **MIT License**  
+Feel free to fork, remix, and level it up.  
+🕶️ No permission needed—just give credit!
+
+
