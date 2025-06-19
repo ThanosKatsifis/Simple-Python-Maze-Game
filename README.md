@@ -1,41 +1,47 @@
 # Simple-Python-Maze-Game
 This ias a simple maze game that i made . Read the README file for more information.
 
-<h1 align="center">
-  🌀 Maze Game
-</h1>
+<div align="center" style="background-color:#0d1117; padding: 40px; border-radius: 12px;">
 
-<p align="center">
-  A two-player dynamic maze game built with Python and Pygame.<br>
-  Dodge walls, race to the finish, and claim victory!
-</p>
+# 🌀 Maze Game
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Pygame-2.1-brightgreen?style=flat-square&logo=python&logoColor=white" alt="pygame">
-  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python">
-</p>
+🎮 _Navigate. Compete. Win._  
+A stylish, two-player maze game coded in **Python** + **Pygame**.
+
+<img src="https://img.shields.io/badge/Pygame-2.1-brightgreen?style=flat-square&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=flat-square&logo=python">
+
+</div>
 
 ---
 
-![screenshot](https://user-images.githubusercontent.com/YOUR_USERNAME_HERE/maze-preview.gif)
+![preview-gif](https://user-images.githubusercontent.com/YOUR_USERNAME_HERE/maze-preview.gif)
 
-## 🎮 Features
+## 🌒 Features
 
-- 🧱 Animated walls with continuous resizing
-- 🕹️ Two-player support (Green and Red squares)
-- ⏱️ Real-time timer for each player
-- 🎯 Reach the finish zone to win
-- 💥 Collision detection with walls and boundaries
-- ✨ Stylish end screen celebration!
+- 🧱 **Animated obstacles** that move in real time
+- 🧑‍🤝‍🧑 **Two-player competitive mode**
+- 🕹️ Arrow keys + WASD controls
+- 🧠 **Smart collision detection**
+- 🎯 A flashy **victory screen**
+- ⏱️ Time tracking for each player
+- 🐍 Built entirely in **Python**
 
-## 🕹️ Controls
+---
 
-| Player 1 (Green) | Player 2 (Red) |
-|------------------|----------------|
-| Arrow Keys       | W A S D        |
+## ⚙️ How to Play
 
-## 🚀 Run the Game
+| Player 1 🟩 | Player 2 🟥 |
+|------------|-------------|
+| ↑ ↓ ← →    | W S A D     |
 
-1. Install Pygame if you don't have it:
-   ```bash
-   pip install pygame
+Make your way through the maze—first to touch the goal wins!
+
+---
+
+## 🚀 Installation & Run
+
+```bash
+pip install pygame
+python maze_game.py
+
