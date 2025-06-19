@@ -50,8 +50,7 @@ python maze_game.py
 
 ## 💻 Preview
 
-_Add animated gameplay previews and screenshots here._  
-🎥 Tip: Use tools like **OBS Studio**, **ShareX**, or **ScreenToGif** to capture smooth and stylish gameplay gifs.
+Coming Soon...
 
 ---
 
