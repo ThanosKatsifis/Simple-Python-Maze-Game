@@ -46,7 +46,7 @@ pip install pygame
 python maze_game.py
 
 
----
+```
 
 ## 💻 Preview
 
